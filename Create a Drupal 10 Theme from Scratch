@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drupal 10 Custom Theme</title>
+    <style>
+        /* Basic Reset (Optional) */
+        body, h1, h2, h3, p, ul, li {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
+
+        body {
+            font-family: sans-serif;
+            line-height: 1.5;
+        }
+
+        .layout-container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensure full viewport height */
+        }
+
+        .top-banner {
+            background-color: #eee;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .logo {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .navigation {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+        }
+
+        .navigation ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0; /* Reset default ul margin */
+            padding: 0; /* Reset default ul padding */
+        }
+
+        .navigation li {
+            margin: 0 15px;
+        }
+
+        .navigation a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .navigation a:hover {
+            text-decoration: underline;
+        }
+
+        .main-container {
+            display: flex;
+            padding: 20px;
+            flex-grow: 1; /* Allow main content to expand and fill available space */
+        }
+
+        .sidebar-left {
+            flex: 0 0 25%;
+            margin-right: 20px;
+            background-color: #f9f9f9;
+            padding: 15px;
+        }
+
+        .content {
+            flex: 1;
+            padding: 15px;
+        }
+
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            /* position: sticky;  Removed sticky for better cross-browser compatibility in simple layout */
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Simple Responsive Adjustments */
+        @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column;
+            }
+
+            .sidebar-left {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+
+            .navigation ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .navigation li {
+                margin: 10px 0;
+            }
+        }
+
+        /* Added to correct the issue of the footer not being at the bottom */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0; /* Reset body margin */
+        }
+
+        .layout-container {
+            flex: 1; /* Allow the layout container to take up the remaining space */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer {
+           /* Removed position: sticky and bottom:0; */
+            width: 100%;
+            margin-top: auto; /* Push the footer to the bottom */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="layout-container">
+        <header class="site-header">
+            <div class="top-banner">
+                <p>Top Banner Content Here</p>
+            </div>
+            <div class="logo">
+                <img src="https://via.placeholder.com/150x50" alt="Logo">
+            </div>
+            <nav class="navigation" role="navigation" aria-labelledby="block-custom-theme-main-menu-menu">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="main-container">
+            <aside class="sidebar-left">
+                <h3>Left Sidebar</h3>
+                <ul>
+                    <li><a href="#">Link 1</a></li>
+                    <li><a href="#">Link 2</a></li>
+                    <li><a href="#">Link 3</a></li>
+                </ul>
+            </aside>
+            <main class="content">
+                <h1>Main Content Area</h1>
+                <p>This is the main content of the page.  You can add your text, images, and other elements here.</p>
+            </main>
+        </div>
+        <footer class="footer">
+            <p>&copy; 2024 My Custom Theme</p>
+        </footer>
+    </div>
+</body>
+</html>
